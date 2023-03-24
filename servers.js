@@ -34,13 +34,11 @@ function updateServerTable() {
 
     newTr = document.createElement('tr');
     newTr.setAttribute('id', key);
-    console.log('new tr created');
-
+    
     let tipAverage = sumPaymentTotal('tipAmt') / Object.keys(allServers).length;
 
     appendTd(newTr, curServer.serverName);
     appendTd(newTr, '$' + tipAverage.toFixed(2));
-
     serverTbody.append(newTr);
   }
 }

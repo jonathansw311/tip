@@ -50,21 +50,22 @@ function createCurPayment() {
 // Create table row element and pass to appendTd with input value
 function appendPaymentTable(curPayment) {
   let newTr = document.createElement('tr');
-  newTr.id = 'payment' + paymentId;
-
+   newTr.id = 'payment' + paymentId;
+  //console.log(newTr);
   appendTd(newTr, '$' + curPayment.billAmt);
   appendTd(newTr, '$' + curPayment.tipAmt);
   appendTd(newTr, curPayment.tipPercent + '%');
-
+  //console.log(newTr);
   paymentTbody.append(newTr);
 }
 
 // Create table row element and pass to appendTd with calculated sum of all payment
 function updateSummary() {
   let tipPercentAvg;
+  
   let paymentTotal = sumPaymentTotal('tipPercent');
   let numberOfPayments = Object.keys(allPayments).length;
-
+ 
   if (paymentTotal === 0 && numberOfPayments === 0) {
     tipPercentAvg = 0;
   } else {
